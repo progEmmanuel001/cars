@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sliding Color Text Animation</title>
+  <style>
+    /* Basic page layout */
+    :root{
+      --bg: #0f1724;            /* page background */
+      --text-size: clamp(2rem, 6vw, 6rem);
+      --duration: 3.5s;        /* animation speed */
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#fff;
+    }
+
+    /* Container so we can show subtitle etc. */
+    .wrap{
+      text-align:center;
+      padding:2rem;
+    }
+
+    /* The sliding gradient text */
+    .sliding-text{
+      font-size:var(--text-size);
+      font-weight:800;
+      line-height:1;
+      /* Create the gradient that will "slide" */
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffd15c 18%,
+        #ff6b6b 36%,
+        #7ee7ff 55%,
+        #b39cff 74%,
+        #ffffff 100%
+      );
+      /* Enlarge background so sliding is visible */
+      background-size: 300% 100%;
+      /* Clip the background to the text */
+      -webkit-background-clip: text;
+      background-clip: text;
+      /* Make text itself transparent so background shows through */
+      color: transparent;
+      /* Smooth animation */
+      animation: slideGradient var(--duration) linear infinite;
+      /* subtle text-shadow to keep contrast on all backgrounds */
+      text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+      display:inline-block;
+      padding:0.1em 0.2em;
+    }
+
+    /* Optional subtle outline for small screens/bad clipping browsers */
+    .sliding-text::selection { background:transparent; }
+
+    /* Keyframes move the gradient across the text */
+    @keyframes slideGradient{
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* small subtitle */
+    .subtitle{
+      margin-top:0.7rem;
+      font-size: clamp(0.8rem, 2.4vw, 1.05rem);
+      color: #b8c0d6;
+      opacity:0.9;
+    }
+
+    /* Make sure it looks good on narrow screens */
+    @media (max-width:420px){
+      :root{ --text-size: clamp(1.6rem, 12vw, 3rem); --duration: 4.5s; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="img" aria-label="Animated sliding gradient text demo">
+    <h1 class="sliding-text">Color sliding through text</h1>
+    <p class="subtitle">Pure CSS — gradient background clipped to text and animated</p>
+  </div>
+</body>
+</html>

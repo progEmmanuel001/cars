@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Background</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{
+      justify-content: center;
+            height: 100vh;
+    }
+    .structure{
+      margin-top: 50px;
+      align-content: center;
+      display: flex;
+      justify-content: center;
+    }
+    /* Make the video cover the entire screen */
+    video.background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1; /* Send video behind content */
+    }
+
+    /* Style your page content */
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+    }
+      .container {
+      width: 350px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Tab buttons */
+    .tab-buttons {
+      display: flex;
+    }
+
+    .tab-buttons label {
+      flex: 1;
+      text-align: center;
+      padding: 15px;
+      cursor: pointer;
+       background: rgba(225,225,225,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .tab-buttons label:hover {
+      background: #444;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* Forms */
+    .form-container {
+      display: flex;
+      width: 200%;
+      transition: transform 0.4s ease;
+    }
+
+    form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      background: gold;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: purple;
+    }
+
+    /* Switch between forms */
+    #login:checked ~ .form-container {
+      transform: translateX(0%);
+    }
+
+    #signup:checked ~ .form-container {
+      transform: translateX(-50%);
+    }
+
+    /* Highlight active tab */
+    #login:checked ~ .tab-buttons label[for="login"],
+    #signup:checked ~ .tab-buttons label[for="signup"] {
+      background: purple;
+    }
+  </style>
+</head>
+<body>
+   <header>
+    <h1>Emirex</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="nissan.html">Nissan</a>
+      <a href="bmw.html">Bmw</a>
+      <a href="audi.html">Audi</a>
+      <a href="shop.html"><b style="color: red;">SHOP</b></a>
+    </nav>
+    <a href="form.html"><button class="button">Sign In</button></a>
+  </header>
+  <!-- Background Video -->
+  <video autoplay muted loop class="background-video">
+    <source src="adveh.mp4" type="video/mp4">
+  </video>
+<div class="structure">
+
+
+ <div class="container">
+    <!-- Hidden radio buttons -->
+    <input type="radio" id="login" name="tab" checked>
+    <input type="radio" id="signup" name="tab">
+
+    <!-- Tab buttons -->
+    <div class="tab-buttons">
+      <label for="login">Login</label>
+      <label for="signup">Sign Up</label>
+    </div>
+
+    <!-- Forms -->
+    <div class="form-container">
+      <!-- Login Form -->
+      <form>
+        <h2>Login</h2>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form>
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+<!--structure ends-->
+</div>
+</body>
+</html>

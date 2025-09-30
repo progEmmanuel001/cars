@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nissan Performance</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* HEADER + NAVIGATION */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      color: #e60012; /* Nissan Red */
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e60012;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('web.webp') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 0 10px;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ddd;
+      max-width: 600px;
+    }
+
+    /* CARS SECTION */
+    .cars {
+      padding: 50px 10%;
+      text-align: center;
+    }
+
+    .cars h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #e60012;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .car-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(230, 0, 18, 0.4);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .car-card h3 {
+      margin: 15px;
+      font-size: 1.4rem;
+    }
+
+    .car-card p {
+      margin: 0 15px 20px;
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    /* HISTORY SECTION */
+    .history {
+      padding: 50px 10%;
+      background: #111;
+    }
+
+    .history h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #e60012;
+    }
+
+    .history p {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* RESPONSIVENESS */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 10px 20px;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+    <header>
+    <h1>Nissan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="nissan.html">Nissan</a>
+      <a href="bmw.html">Bmw</a>
+      <a href="audi.html">Audi</a>
+      <a href="shop.html"><b style="color: red;">SHOP</b></a>
+    </nav>
+    <a href="form.html"><button class="button">Sign In</button></a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h2>Experience Nissan Performance</h2>
+    <h3  style="color: cyan;">The legendary Nissan GT-R lineup, from the iconic R34 to the cutting-edge R35 — engineered for speed, precision, and style.</h3>
+  </section>
+
+  <!-- CARS SECTION -->
+  <section class="cars" id="cars">
+    <h2>Our Legendary Cars</h2>
+    <div class="car-grid">
+      <!-- Nissan GTR R34 -->
+      <div class="car-card">
+        <img src="nissan-front.png" alt="Nissan GTR R34">
+        <h3>Nissan GT-R R34</h3>
+        <p>The Skyline GT-R R34 is a true JDM legend, combining turbocharged power, all-wheel drive, and timeless design.</p>
+      </div>
+
+      <!-- Nissan GTR R35 -->
+      <div class="car-card">
+        <img src="gtr.png" alt="Nissan GTR R35">
+        <h3>Nissan GT-R R35</h3>
+        <p>The modern GT-R R35 delivers supercar performance with cutting-edge technology and an unmistakable presence.</p>
+      </div>
+    </div>
+  </section>
+<section>
+  <img src="pro.jpg" alt="">
+</section>
+  <!-- HISTORY SECTION -->
+  <section class="history" id="history">
+    <h2>The History of Nissan GT-R</h2>
+    <p>
+      The Nissan GT-R heritage began in the late 1960s with the Skyline GT-R, quickly gaining a reputation on the racetrack.
+      By the 1990s, the R32, R33, and R34 generations cemented the GT-R name as the ultimate Japanese performance car.
+      The R35, launched in 2007, redefined what a sports car could be, blending power, technology, and daily usability.
+      Today, the GT-R continues to be an icon for enthusiasts worldwide.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Nissan Performance | Built with passion for car enthusiasts.
+  </footer>
+
+</body>
+</html>
