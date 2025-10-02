@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Floating Label Form (no JS)</title>
+<link rel="stylesheet" href="TESTT.css">
+</head>
+<body>
+  <div class="card" role="region" aria-labelledby="contact-title">
+    <h1 id="contact-title">Contact us</h1>
+
+    <!-- NOTE: each text input includes a placeholder attribute (empty string) to make :placeholder-shown work -->
+    <form autocomplete="on" novalidate>
+      <div class="field">
+        <input id="first" name="first" type="text" placeholder=" " required aria-required="true" />
+        <label for="first">First name</label>
+      </div>
+
+      <div class="field">
+        <input id="last" name="last" type="text" placeholder=" " required />
+        <label for="last">Last name</label>
+      </div>
+
+      <div class="field">
+        <input id="email" name="email" type="email" placeholder=" " required />
+        <label for="email">Email address</label>
+      </div>
+
+      <div class="field">
+        <input id="phone" name="phone" type="tel" placeholder=" " />
+        <label for="phone">Phone (optional)</label>
+      </div>
+
+      <div class="field select">
+        <!-- include an empty value as a pseudo-placeholder for select -->
+        <select id="subject" name="subject" aria-label="Subject">
+          <option value="" selected hidden>Choose subject</option>
+          <option value="support">Support</option>
+          <option value="sales">Sales</option>
+          <option value="feedback">Feedback</option>
+        </select>
+        <label for="subject">Subject</label>
+      </div>
+
+      <div class="field full-width">
+        <textarea id="message" name="message" placeholder=" "></textarea>
+        <label for="message">Your message</label>
+        <div class="help">Min 20 characters</div>
+      </div>
+
+      <div class="field full-width">
+        <label style="font-size:13px; color:var(--muted);">
+          <input type="checkbox" name="subscribe" /> Subscribe to newsletter
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn secondary">Cancel</button>
+        <button type="submit" class="btn">Send message</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

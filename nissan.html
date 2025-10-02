@@ -124,6 +124,139 @@
       color: #ccc;
       line-height: 1.4;
     }
+    /* 350z container */
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700;800&family=Inter:wght@300;400;600;700&display=swap');
+    :root{
+      --bg:#000;
+      --accent:#e50914;
+      --muted:#c7c7c7;
+      --container-bg: #0b0b0b;
+    }
+
+    .spotlight{
+      max-width:1200px;
+      margin:48px auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;
+      gap:0;
+      align-items:stretch;
+      box-shadow:0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    /* Left text column */
+    .spotlight .text {
+      flex:1 1 50%;
+      padding:56px 64px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:linear-gradient(90deg, rgba(255,255,255,0.015), transparent);
+    }
+
+    .eyebrow{
+      font-family:Oswald, sans-serif;
+       letter-spacing:2px;
+        color:var(--accent);
+         font-weight:700;
+          margin-bottom:14px
+        }
+    .headline{
+      font-family:Oswald, sans-serif;
+       font-size:36px;
+        line-height:1.02;
+         margin-bottom:18px;
+          letter-spacing:1px
+        }
+    .lead{
+      color:var(--muted);
+       max-width:58ch;
+        margin-bottom:28px;
+         font-size:16px}
+
+    .cta-row{
+      display:flex;
+      gap:20px;
+      align-items:center
+    }
+    .btn{
+      background:transparent;
+      border:2px solid #fff;
+      padding:14px 24px;
+      border-radius:6px;
+      color:#fff;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      cursor:pointer;
+      transition:all .28s
+    }
+    .btn:hover{
+      background:#fff;
+      color:#000
+    }
+
+    /* Right image column */
+    .visual{
+      flex:1 1 50%;
+      min-height:360px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(90deg, transparent, rgba(0,0,0,0.25));
+    }
+
+    .visual img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:translateX(6%);
+      z-index: 3;
+      filter:drop-shadow(0 30px 60px rgba(0,0,0,0.6));
+    }
+
+    /* big overlay text */
+    .visual .overlay-text{
+      position:absolute;
+      right:8%;
+      top:4%;
+      z-index:2;
+      font-family:Oswald, sans-serif;
+      font-size:58px;
+      line-height:0.85;
+      color:#fff;
+      text-transform:uppercase;
+      transform:rotate(-10deg) translateZ(0);
+      mix-blend-mode:normal;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      opacity:0.98;
+      pointer-events:none;
+      white-space:nowrap;
+    }
+
+    .visual .overlay-sub{
+      position:absolute;
+      right:6%;
+      bottom:12%;
+      font-family:Oswald, sans-serif;
+      font-size:40px;
+      z-index: 4;
+      color:var(--accent);
+      transform:rotate(-6deg);
+      text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+    /* responsive */
+    @media (max-width:900px){
+      .spotlight{flex-direction:column}
+      .visual{min-height:300px}
+      .visual .overlay-text{font-size:40px;right:6%;top:14%}
+      .visual .overlay-sub{font-size:28px;right:6%;bottom:23%}
+      .hero-img{width:95%}
+    }
+
 
     /* HISTORY SECTION */
     .history {
@@ -216,7 +349,26 @@
     </div>
   </section>
 <section>
-  <img src="pro.jpg" alt="">
+  <div class="spotlight" role="region" aria-label="Hero spotlight">
+    <div class="text">
+      <div class="eyebrow">Discover the Iconic</div>
+      <h2 class="headline">Nissan 350Z</h2>
+      <p class="lead">The Nissan 350Z is more than just a car — it's a legend among enthusiasts. With its aggressive styling, powerful V6 engine, and rear-wheel drive performance, the 350Z is built for those who crave the thrill of driving. Whether for the street or the track, this icon delivers unforgettable experiences.</p>
+
+      <div class="cta-row">
+        <a class="btn" href="#" style="text-decoration: none;">View 350Z Models</a>
+      </div>
+    </div>
+
+    <div class="visual">
+      <!-- big background image (should be updated with Nissan 350Z image) -->
+      <img src="350z.png" alt="Nissan 350Z" aria-hidden>
+
+      <!-- overlay styled text -->
+      <div class="overlay-text">Pure<br>Performance</div>
+      <div class="overlay-sub">Nissan <span style="color:var(--accent)">350Z</span></div>
+    </div>
+  </div>
 </section>
   <!-- HISTORY SECTION -->
   <section class="history" id="history">

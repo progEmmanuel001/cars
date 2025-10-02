@@ -1,0 +1,150 @@
+ :root{
+      --bg: #f7f8fc;
+      --card: cyan;
+      --accent: #2563eb; /* change to your brand color */
+      --muted: #6b7280;
+      --radius: 10px;
+      --shadow: 0 6px 18px rgba(32,33,36,0.06);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background-color: #111827;
+      padding:24px;
+    }
+
+    .card{
+      width:100%;
+      max-width:720px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+
+    h1{
+      margin:0 0 18px 0;
+      font-size:20px;
+      color:#111827;
+    }
+
+    form {
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:16px;
+    }
+
+    /* make form single-column on small screens */
+    @media (max-width:640px){
+      form { grid-template-columns: 1fr; }
+    }
+
+    /* wrapper for each floating input */
+    .field {
+      position:relative;
+      padding-top:14px; /* space for label when floated */
+    }
+
+    /* the input/textarea/select base */
+    .field input,
+    .field textarea,
+    .field select {
+      width:100%;
+      padding:14px 12px 12px 12px;
+      font-size:15px;
+      border:1px solid #e6e7eb;
+      border-radius:8px;
+      background:transparent;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+    }
+
+    /* floating label */
+    .field label{
+      position:absolute;
+      left:12px;
+      top:18px;
+      pointer-events:none;
+      font-size:15px;
+      color:var(--muted);
+      transition: transform .12s ease, font-size .12s ease, top .12s ease, color .12s ease;
+      background:transparent;
+      padding:0 6px;
+    }
+
+    /* when input is focused OR has content, move label up and shrink it */
+    /* works for inputs using placeholder trick (see placeholder attribute below) */
+    .field input:focus + label,
+    .field input:not(:placeholder-shown) + label,
+    .field textarea:focus + label,
+    .field textarea:not(:placeholder-shown) + label {
+      transform: translateY(-5px);
+      top:6px;
+      font-size:12px;
+      color: var(--accent);
+      background: var(--card); /* cover underlying text for clean look */
+    }
+
+    /* select doesn't support placeholder-shown reliably, so use focus-within on wrapper */
+    .field.select:focus-within label,
+    .field.select:not(:empty) select:not([value=""]) + label{
+      transform: translateY(-14px);
+      top:6px;
+      font-size:12px;
+      color: var(--accent);
+      background: var(--card);
+    }
+
+    /* textarea — allow larger height */
+    .field textarea {
+      min-height:110px;
+      resize:vertical;
+    }
+
+    /* helper text & error */
+    .help {
+      font-size:12px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .full-width { grid-column: 1 / -1; } /* makes element span both columns */
+
+    /* submit */
+    .actions {
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      align-items:center;
+      margin-top:6px;
+      grid-column: 1 / -1;
+    }
+
+    .btn {
+      border:0;
+      padding:10px 14px;
+      border-radius:8px;
+      font-weight:600;
+      cursor:pointer;
+      background:var(--accent);
+      color:white;
+    }
+
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(37,99,235,0.12);
+    }
